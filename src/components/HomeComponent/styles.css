@@ -1,0 +1,33 @@
+.home {
+    margin: 5%;
+}
+
+.homeDesign {
+    font-family: 'Roboto', sans-serif;
+}
+
+.centro {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.mueblesNordicos {
+    font-family: 'Merriweather', serif;
+    font-size: 10vh;
+    width: 50%;
+}
+
+.carrusel {
+    width: 50%;
+    color: black;
+}
+
+.compra {
+    font-family: 'Merriweather', serif;
+}
+
+.chatea {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+}

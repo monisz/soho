@@ -1,17 +1,16 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ItemListContainer } from './containers/ItemListContainer';
+import { HomeComponent } from './components/HomeComponent';
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <div>
-        <NavBar/>
-      </div> */}
+        {/* <NavBar/> */}
       <Switch>
-        <div className="App">
-          <Route exact path="/" component={ItemListContainer} />
-        </div>
+        <Route exact path="/" component={HomeComponent} />
+        <Route path="/categoria/:cat" component={ItemListContainer} />
       </Switch>
       {/* <div>
         <Footer/>
