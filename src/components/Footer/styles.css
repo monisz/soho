@@ -1,0 +1,35 @@
+.footer {
+    height: 20%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 5% 0 5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-izquierda {
+    /* //ver el resto */
+    font-family: 'Roboto', sans-serif; 
+    font-size: 0.9rem;
+    
+}
+
+.footer-titulos {
+    font-size: 1.3rem;
+}
+
+.footer-redes {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-redes-nombre {
+    font-size: 0.7rem;
+    padding-left: 10%;
+}
+
+.footer-logo {
+    /* width: 25%; */
+    height: 15%;
+}
