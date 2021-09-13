@@ -1,22 +1,30 @@
-import React from "react"; 
+import React, { useEffect, useState } from "react"; 
 import Carousel from 'react-bootstrap/Carousel';
+import sanityClient from "../../sanityClient";
 import './styles.css';
 
 
 export const HomeCarousel = () => {
+  const [carousels, setCarousels] = useState(null);
+
+  useEffect(() => {
+    sanityClient.fetch(`*[_type == "carousel"]{
+      "images": images[].asset->url,
+    }`).then((data) => {
+      setCarousels(data)
+    }).catch(console.error)
+  }, [])
 
   return (
     <>
       <Carousel fade variant="dark">
-        <Carousel.Item interval={2000}>
-          <img className="d-block w-100" src='imagenes/mesaRatona.png' alt="mesa ratona Soho" />
-        </Carousel.Item>
-        <Carousel.Item interval={2000} >
-          <img className="d-block w-100" src='imagenes/rackSimetrico.png' alt="rack Soho" />
-        </Carousel.Item>
-        <Carousel.Item interval={2000}>
-          <img className="d-block w-100" src='imagenes/biblioteca.png' alt="biblioteca Soho" />
-        </Carousel.Item>
+        {
+          carousels && carousels[0].images.map((imgUrl, i) => (
+            <Carousel.Item key={i} interval={2000}>
+              <img className="d-block w-100" src={imgUrl} alt={`mueblePrincipal${i}`} />
+            </Carousel.Item>
+          ))
+        }
       </Carousel>
     </>
   )
