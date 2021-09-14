@@ -9,77 +9,61 @@ export default {
       type: 'string',
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+    },
+    {
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{type: 'image'}]
+    },
+    {
+      name: 'detail',
+      title: 'Detalle',
+      type: 'text'
+    },
+    {
+      name: 'measures',
+      title: 'Medidas',
+      type: 'text'
+    },
+    {
+      name: 'cares',
+      title: 'Cuidados',
+      type: 'text'
+    },
+    {
+      name: 'colour',
+      title: 'Color',
+      type: 'array',
+      of: [{type: 'string'}],
       options: {
-        source: 'title',
-        maxLength: 96,
+        list: [
+          { value: "blanco", title: "Blanco"},
+          { value: "negro", title: "Negro"}
+        ],
       },
     },
     {
-      title: 'Default variant',
-      name: 'defaultProductVariant',
-      type: 'productVariant',
-    },
-    {
-      title: 'Variants',
-      name: 'variants',
-      type: 'array',
-      of: [
-        {
-          title: 'Variant',
-          type: 'productVariant',
-        },
-      ],
-    },
-    {
-      title: 'Tags',
-      name: 'tags',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
-      options: {
-        layout: 'tags',
-      },
-    },
-    {
-      name: 'vendor',
-      title: 'Vendor',
+      name: 'category',
+      title: 'Category',
       type: 'reference',
-      to: {type: 'vendor'},
-    },
-    {
-      name: 'blurb',
-      title: 'Blurb',
-      type: 'localeString',
-    },
-    {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: {type: 'category'},
-        },
-      ],
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'localeBlockContent',
+      to: [{type: 'category'}]
     },
   ],
 
   preview: {
     select: {
       title: 'title',
-      manufactor: 'manufactor.title',
-      media: 'defaultProductVariant.images[0]',
+      category: 'category.name',
+    },
+    prepare(selection) {
+      const {category} = selection
+      return Object.assign({}, selection, {
+        subtitle: category && `by ${category}`,
+      })
     },
   },
 }

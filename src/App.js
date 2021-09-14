@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ItemListContainer } from './containers/ItemListContainer';
 import { HomeComponent } from './components/HomeComponent';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -12,9 +13,7 @@ function App() {
         <Route exact path="/" component={HomeComponent} />
         <Route path="/categoria/:cat" component={ItemListContainer} />
       </Switch>
-      {/* <div>
-        <Footer/>
-      </div> */}
+      <Footer />
     </BrowserRouter>
   );
 }
