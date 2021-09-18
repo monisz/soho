@@ -1,0 +1,18 @@
+.lista {
+    display: flex;
+    align-items: center;
+    padding: 4% 4%;
+}
+
+.filtros {
+    width: 20%;
+    height: 80vh;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.cards {
+    width: 80%;
+    height: 75vh;
+    /* margin-top: 5%; */
+    margin-left: 2%;
+}

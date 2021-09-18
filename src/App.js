@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ItemListContainer } from './containers/ItemListContainer';
 import { HomeComponent } from './components/HomeComponent';
+import { ItemDetailContainer } from './containers/ItemDetailContainer';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
         {/* <NavBar/> */}
       <Switch>
         <Route exact path="/" component={HomeComponent} />
-        <Route path="/categoria/:cat" component={ItemListContainer} />
+        <Route path="/categoria" component={ItemListContainer} />
+        <Route path="/detalle/:title" component={ItemDetailContainer} />
       </Switch>
       <Footer />
     </BrowserRouter>

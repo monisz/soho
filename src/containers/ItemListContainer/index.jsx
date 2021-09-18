@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import sanityClient from '../../sanityClient.js';
+import { ItemList } from '../../components/ItemList';
+import { Filtros } from '../../components/Filtros/index.jsx';
+import "./styles.css";
 
 export const ItemListContainer = () => {
     const [productData, setProductData] = useState(null);
@@ -20,7 +23,7 @@ export const ItemListContainer = () => {
         }).catch(console.error)
     }, [])
 
-    return (
+   /*  return (
         <>
             {
                 productData && productData.map(({images}) => (
@@ -34,5 +37,16 @@ export const ItemListContainer = () => {
                 ))
             }
         </>
+    ) */
+
+    return (
+        <div className="lista">
+            <div className="filtros">
+                <Filtros productos={productData}/>
+            </div>
+            <div className="cards">
+                <ItemList productos={productData}/>
+            </div>
+        </div>
     )
 }
