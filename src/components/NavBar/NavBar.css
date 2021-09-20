@@ -1,0 +1,20 @@
+.navbar {
+  height: 90px;
+  font-family: Roboto;
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0em;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
+  color: #000;
+  text-decoration: none;
+  background-color: rgba(255,255,255,.55);
+}
