@@ -4,6 +4,10 @@
   font-size: 1.2rem;
 }
 
+.bg-dark {
+  background-color: #000!important;
+}
+
 .nav-link {
   text-decoration: none;
   padding: 0em;
