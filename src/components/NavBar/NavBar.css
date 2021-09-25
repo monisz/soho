@@ -1,7 +1,12 @@
-.navbar {
-  height: 90px;
-  font-family: Roboto;
+.navBar {
+  height: 13vh;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
+  padding: 0%;
+}
+
+.navbar-container {
+  margin: 0 2%;
 }
 
 .bg-dark {
@@ -13,6 +18,10 @@
   padding: 0em;
 }
 
+.nav-menu {
+  margin-left: 4%;
+}
+
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
 }
@@ -21,4 +30,10 @@
   color: #000;
   text-decoration: none;
   background-color: rgba(255,255,255,.55);
+}
+
+@media (min-width: 768px) {
+  .navbar-container {
+    max-width: 100%;
+  }
 }

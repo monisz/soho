@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"; 
 import Carousel from 'react-bootstrap/Carousel';
 import sanityClient from "../../sanityClient";
-import './styles.css';
+import './styles.css'
 
 
 export const HomeCarousel = () => {
@@ -21,7 +21,7 @@ export const HomeCarousel = () => {
         {
           carousels && carousels[0].images.map((imgUrl, i) => (
             <Carousel.Item key={i} interval={2000}>
-              <img className="d-block w-100" src={imgUrl} alt={`mueblePrincipal${i}`} />
+              <img className="d-block w-100 carrusel-img img-fluid" src={imgUrl} alt={`mueblePrincipal${i}`} />
             </Carousel.Item>
           ))
         }

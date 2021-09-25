@@ -1,5 +1,6 @@
 import { Nav } from "react-bootstrap";
 import Cart from "../Cart/Cart";
+import './NavLink.css';
 
 const itemsNav = [
   {
@@ -21,7 +22,7 @@ const itemsNav = [
 
 const NavLink = () => {
   return (
-    <Nav>
+    <Nav className="nav-iconos" >
       {
         itemsNav.map(({ href, src, alt }, i) => (
           <Nav.Link key={i} href={href} target="_blank">

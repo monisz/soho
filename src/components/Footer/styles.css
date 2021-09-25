@@ -1,22 +1,22 @@
 .footer {
-    height: 20%;
+    height: 16vh;
     background-color: black;
     color: white;
     display: flex;
     justify-content: space-between;
-    padding: 2% 5% 0 5%;
+    padding: 1.5% 5% 0 5%;
     font-family: 'Roboto', sans-serif;
+    line-height: 1.5vh;
 }
 
-.footer-izquierda {
-    /* //ver el resto */
+.footer-menu {
     font-family: 'Roboto', sans-serif; 
     font-size: 0.9rem;
     
 }
 
 .footer-titulos {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 .footer-redes {
@@ -30,6 +30,5 @@
 }
 
 .footer-logo {
-    /* width: 25%; */
-    height: 15%;
+    height: 100%;
 }

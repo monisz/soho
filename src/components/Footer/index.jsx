@@ -4,7 +4,7 @@ import './styles.css';
 export const Footer = () => {
     return (
         <div className="footer">
-            <div classNmae="footer-izquierda">
+            <div className="footer-menu">
                 <p className="footer-titulos">Info</p>
                 <p>Nosotros</p>
                 <p>Colección</p>
@@ -24,8 +24,8 @@ export const Footer = () => {
                     <p className="footer-redes-nombre">Twitter</p>
                 </div>
             </div>
-            <div className="footer-logo">
-                <img className="footer-logo2" src="/imagenes/logo22.jpg" alt="logo Soho" />
+            <div>
+                <img className="footer-logo" src="/imagenes/logo22.jpg" alt="logo Soho" />
             </div>
         </div>
     )
