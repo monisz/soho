@@ -7,10 +7,10 @@ export const Item = ({ producto }) => {
             <div className="item" >
                 <h6 className="">{producto.title}</h6>
                 <img className="item-imagen" src={producto.images[0]} alt="rack Soho" />
-                <h6>ARS $ {producto.price}</h6>
-                <p className="item-detalle">Especificaciones... 
+                <h6 className="item-precio">ARS $ {producto.price}</h6>
+                <p className="item-detalle">Especificaciones...  
                     <Link className="item-link" 
-                        to={`/detalle/${producto.title}`}>Leer más
+                        to={`/detalle/${producto.title}`}> Leer más
                     </Link>
                 </p>  
             </div>

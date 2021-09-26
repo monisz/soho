@@ -1,18 +1,20 @@
 .lista {
     display: flex;
     align-items: center;
-    padding: 4% 4%;
+    margin: 0% 4%;
+    height: 71vh;
+    font-family: 'Roboto', sans-serif;
 }
 
 .filtros {
     width: 20%;
-    height: 80vh;
+    height: 64vh;
     box-shadow: 0px 4px 4px #00000040;
+
 }
 
 .cards {
     width: 80%;
-    height: 75vh;
-    /* margin-top: 5%; */
+    height: 66vh;
     margin-left: 2%;
 }
