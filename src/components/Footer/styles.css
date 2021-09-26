@@ -15,7 +15,7 @@
     
 }
 
-.footer-titulos {
+.footer-titulo {
     font-size: 1.1rem;
 }
 
@@ -24,11 +24,21 @@
     flex-direction: row;
 }
 
+.footer-redes-detalle {
+    color: white;
+    display: flex;
+    font-size: 0.9rem;
+}
+
 .footer-redes-nombre {
-    font-size: 0.7rem;
-    padding-left: 10%;
+    margin-left: 10%;
+}
+
+.nav-link:hover {
+    color: white;
 }
 
 .footer-logo {
     height: 100%;
 }
+
