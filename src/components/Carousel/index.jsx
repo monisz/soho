@@ -17,7 +17,7 @@ export const HomeCarousel = () => {
 
   return (
     <>
-      <Carousel fade variant="dark">
+      <Carousel fade variant="dark" indicators={false} prevIcon nextIcon>
         {
           carousels && carousels[0].images.map((imgUrl, i) => (
             <Carousel.Item key={i} interval={2000}>
