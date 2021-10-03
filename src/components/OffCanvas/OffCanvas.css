@@ -1,0 +1,12 @@
+.offcanvas {
+  width: 50%;
+  font-family: 'Roboto'
+}
+
+.rounded-pill {
+  position: relative;
+  right: .5em;
+  border: 2px solid #fff;
+  bottom: .8em;
+  padding: .1em .3em;
+}
