@@ -18,3 +18,11 @@
     height: 66vh;
     margin-left: 2%;
 }
+
+.il-spinner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 15em;
+    left: 50%;
+}

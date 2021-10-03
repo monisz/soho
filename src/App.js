@@ -12,7 +12,7 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomeComponent} />
-        <Route path="/categoria" component={ItemListContainer} />
+        <Route path="/categoria/:categoryFromUrl" component={ItemListContainer} />
         <Route path="/detalle/:title" component={ItemDetailContainer} />
       </Switch>
       <Footer />
