@@ -6,7 +6,7 @@ export const Item = ({ producto }) => {
         return (
             <div className="item" >
                 <h6 className="">{producto.title}</h6>
-                <img className="item-imagen" src={producto.images[0]} alt="rack Soho" />
+                <img className="item-imagen" src={producto.images[0]} alt={producto.title} />
                 <h6 className="item-precio">ARS $ {producto.price}</h6>
                 <p className="item-detalle">Especificaciones...  
                     <Link className="item-link" 
