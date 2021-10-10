@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   name: 'product',
   title: 'Product',
@@ -5,17 +6,17 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Titulo',
       type: 'string',
     },
     {
       name: 'price',
-      title: 'Price',
+      title: 'Precio',
       type: 'number',
     },
     {
       name: 'images',
-      title: 'Images',
+      title: 'Imagenes',
       type: 'array',
       of: [{type: 'image'}]
     },
@@ -48,22 +49,14 @@ export default {
     },
     {
       name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: [{type: 'category'}]
+      title: 'Categoria',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Muebles', value: 'muebles'},
+          {title: 'Bazar', value: 'bazar'}
+        ],
+      }
     },
   ],
-
-  preview: {
-    select: {
-      title: 'title',
-      category: 'category.name',
-    },
-    prepare(selection) {
-      const {category} = selection
-      return Object.assign({}, selection, {
-        subtitle: category && `by ${category}`,
-      })
-    },
-  },
 }

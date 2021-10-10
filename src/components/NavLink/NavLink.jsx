@@ -1,5 +1,5 @@
 import { Nav } from "react-bootstrap";
-import Cart from "../Cart/Cart";
+import OffCanvas from "../OffCanvas/OffCanvas";
 import './NavLink.css';
 
 const itemsNav = [
@@ -10,12 +10,12 @@ const itemsNav = [
   },
   {
     href: 'https://www.facebook.com/Soho-Muebles-110702924580343',
-    src: 'imagenes/fb_nav.svg',
+    src: '/imagenes/fb_nav.svg',
     alt: 'fb_soho'
   },
   {
     href: 'https://wa.me/message/OCTVKP3KIITBI1',
-    src: 'imagenes/wpp_nav.svg',
+    src: '/imagenes/wpp.svg',
     alt: 'wpp_soho'
   }
 ];
@@ -30,7 +30,7 @@ const NavLink = () => {
           </Nav.Link>
         ))
       }
-      <Cart />
+      <OffCanvas />
     </Nav>
   )
 };
