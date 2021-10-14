@@ -1,5 +1,5 @@
 .navBar {
-  height: 13vh;
+  height: 15vh;
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
   padding: 0%;
@@ -19,7 +19,7 @@
 }
 
 .nav-menu {
-  margin-left: 4%;
+  margin-left: 5%;
 }
 
 .navbar-dark .navbar-nav .nav-link {

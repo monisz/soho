@@ -1,8 +1,8 @@
 .lista {
     display: flex;
     align-items: center;
-    margin: 0% 4%;
-    height: 71vh;
+    margin: 1% 4%;
+    /* height: 71vh; */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -15,7 +15,7 @@
 
 .cards {
     width: 80%;
-    height: 66vh;
+    /* height: 66vh; */
     margin-left: 2%;
 }
 

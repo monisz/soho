@@ -1,12 +1,12 @@
 .home {
     margin: 0 5% 0 5%;
-    height: 71vh;
+    /* height: 71vh; */
 }
 
 .home-inicio {
     display: flex;
     flex-wrap: nowrap;
-    max-height: 65vh;
+    /* max-height: 65vh; */
 }
 
 .centro {

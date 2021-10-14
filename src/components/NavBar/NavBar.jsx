@@ -13,14 +13,14 @@ const NavBar = () => {
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Link to="/" className="nav-link nav-menu">
+          <Nav className="me-auto nav-menu">
+            <Link to="/" className="nav-link">
               HOME
             </Link>
             <NavDropdown title="COLECCIÓN">
               <NavDropdown.Item href="/categoria/muebles">Muebles</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/categoria/bazar">Bazar</NavDropdown.Item>
+              <NavDropdown.Item href="/categoria/bazar">Bazar (próximamente)</NavDropdown.Item>
             </NavDropdown>
             <Link to="" className="nav-link">
               NOSOTROS
