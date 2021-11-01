@@ -5,18 +5,21 @@ import { HomeComponent } from './components/HomeComponent';
 import { ItemDetailContainer } from './containers/ItemDetailContainer';
 import { Footer } from './components/Footer';
 import NavBar from './components/NavBar/NavBar';
+import { CartComponentContext } from './context/CartContext';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={HomeComponent} />
-        <Route path="/categoria/:categoryFromUrl" component={ItemListContainer} />
-        <Route path="/detalle/:title" component={ItemDetailContainer} />
-      </Switch>
-      <Footer />
-    </BrowserRouter>
+    <CartComponentContext>
+      <BrowserRouter>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={HomeComponent} />
+          <Route path="/categoria/:categoryFromUrl" component={ItemListContainer} />
+          <Route path="/detalle/:title" component={ItemDetailContainer} />
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </CartComponentContext>
   );
 }
 

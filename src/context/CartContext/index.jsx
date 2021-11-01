@@ -4,27 +4,27 @@ import sanityClient from '../../sanityClient';
 export const CartContext = createContext();
 
 export const CartComponentContext = ({children}) => {
-    const [postdata, setPost] = useState(null);
+    const [productData, setProductData] = useState([]);
 
-    /* useEffect( () => {
-        sanityClient.fetch(`*[_type == "post"]{
+    useEffect(() => {
+        sanityClient.fetch(`*[_type == "product"]{
             title,
-            weight in grams,
-            price
-            mainImage{
-                asset->{
-                    _id,
-                    url,
-                },
-                alt
-            }
-        }`).then((data) => setPost(data))
-        .catch(console.error)
-    },[]) */
+            price,
+            "images": images[].asset->url,
+            detail,
+            measures,
+            cares,
+            colour,
+            category
+        }`).then((data) => {
+            setProductData(data)
+        }).catch(console.error)
+    }, []);
 
+    console.log(productData)
 
     return (
-        <CartContext.Provider value={{}}>
+        <CartContext.Provider value={{productData}}>
             {children}
         </CartContext.Provider>
     )
