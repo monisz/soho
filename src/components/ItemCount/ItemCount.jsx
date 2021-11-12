@@ -29,8 +29,7 @@ export const ItemCount = ({item, initial, onAdd, cartAdd, from}) => {
                 <button className="btn btn-dark detalle-boton-anadir"
                     onClick={() => {onAdd(contador)}}>AÑADIR AL CARRITO
                 </button>
-                : contador !== initial ? cartAdd({item, contador, initial}) 
-                                        : console.log("iguales")
+                : contador !== initial && cartAdd({item, contador, initial}) 
             }
         </div>
     )

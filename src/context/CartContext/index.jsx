@@ -24,9 +24,9 @@ export const CartComponentContext = ({children}) => {
         }).catch(console.error)
     }, []);
 
-    console.log(productData)
-    console.log(carrito)
-
+    //console.log(productData)
+    //console.log(carrito)
+    
     useEffect ( () => {
         const carritoEnLocal = JSON.parse(localStorage.getItem('carrito'));
         if (carritoEnLocal) {

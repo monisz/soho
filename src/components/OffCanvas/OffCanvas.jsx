@@ -13,8 +13,8 @@ const OffCanvas = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  console.log(context.carrito.length)
-  console.log(context.cartWidget) 
+  // console.log(context.carrito.length)
+  // console.log(context.cartWidget)
 
   return (
     <>

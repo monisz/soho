@@ -9,7 +9,7 @@ export const ItemDetailContainer = () => {
     const [productData, setProductData] = useState(null);
     const [itemDetalle, setItemDetalle] = useState({});
 
-    console.log(title)
+    // console.log(title)
     useEffect(() => {
         sanityClient.fetch(`*[_type == "product"]{
             title,
@@ -26,7 +26,7 @@ export const ItemDetailContainer = () => {
         }).catch(console.error)
     }, [])
     
-    console.log(productData)
+    // console.log(productData)
 
     useEffect ( () => {
         if (productData) {
