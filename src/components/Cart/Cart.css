@@ -71,6 +71,18 @@
   grid-row: 2;
 }
 
+.item4 {
+  cursor: pointer;
+}
+
 .item5 {
   margin-bottom: 0px;
+}
+
+div.item3 .detalle-carrito{
+  width: 150%;
+}
+
+div.item3 .detalle-cantidad{
+  width: 120%;
 }

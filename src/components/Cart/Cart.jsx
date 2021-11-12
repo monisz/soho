@@ -16,7 +16,7 @@ const Cart = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  console.log(context.carrito)
+  // console.log(context.carrito)
 
   function cartAdd ({item, contador, initial}) {
     contador > initial ? cantidad = contador - initial
@@ -39,15 +39,14 @@ const Cart = () => {
                       <ListGroup.Item key={i} >
                         <img src={product.item.images[0]} alt={product.item.title} className='li-item item1 ob-li-im'/>
                         <p className='li-item item2'>{product.item.title}</p>
-                        {/* <p className='li-item item2'>{product.item.price}</p> */}
                         <div className='li-item item3'>
                           <ItemCount item={product.item} initial={product.cantidad} cartAdd={cartAdd} />
                         </div>
-                        <button className='li-item item4' onClick={() => {context.removeItem(product.item.title)}}>
+                        <div className='li-item item4' onClick={() => {context.removeItem(product.item.title)}}>
                           <img src='../../imagenes/delete_ic.svg' alt='Eliminar producto' className='ob-li-ic' />
                           &nbsp;
                           Eliminar
-                        </button>   
+                        </div>   
                         <p className='li-item item5'>Subtotal: $ {product.item.price*product.cantidad}</p>
                       </ListGroup.Item>
                     ))

@@ -29,7 +29,7 @@ export const ItemListContainer = () => {
     }, [categoryFromUrl]); */
 
 
-    console.log(context.productData)
+    // console.log(context.productData)
 
     useEffect ( () => {
         const productosFiltrado = context.productData.filter ( (element) => element.category === categoryFromUrl);
