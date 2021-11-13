@@ -34,7 +34,7 @@ export const ItemDetailComponent = ({item}) => {
             </div>
             <div className="detalle-derecha">
                 <h2 className="detalle-titulo">{item.title}</h2>
-                <h3>ARG $ {item.price}</h3>
+                <h3>ARS $ {item.price}</h3>
                 <p className="detalle-especificaciones">{item.measures}</p>
                 <p className="detalle-opcionales">{item.cares}</p>
             </div>

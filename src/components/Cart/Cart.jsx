@@ -38,7 +38,10 @@ const Cart = () => {
                     context.carrito.map((product, i) => (
                       <ListGroup.Item key={i} >
                         <img src={product.item.images[0]} alt={product.item.title} className='li-item item1 ob-li-im'/>
-                        <p className='li-item item2'>{product.item.title}</p>
+                        <div className='li-item item2' >
+                          <p>{product.item.title}</p>
+                          <p>ARS $ {product.item.price}</p>
+                        </div>
                         <div className='li-item item3'>
                           <ItemCount item={product.item} initial={product.cantidad} cartAdd={cartAdd} />
                         </div>
