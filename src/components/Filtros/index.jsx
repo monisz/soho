@@ -1,10 +1,11 @@
 import { React, useState } from 'react'; 
 import "./styles.css";
-//TODO arreglar cuando estén definidas las categorías
 
 
-export const Filtros = ({productos}) => {
+export const Filtros = ({aplicarFiltros}) => {
     const [filtro, setFiltro] = useState("");
+
+    console.log(filtro);
 
     return (
         <div>
@@ -20,26 +21,52 @@ export const Filtros = ({productos}) => {
             </div>
             <div className="filtros-general">
                 <div>
-                    <p>Categoría</p>
-                    <p className="filtros-detalle">Muebles</p>
-                    <p className="filtros-detalle" >Bazar</p>
+                    <p className="filtros-titulos">Categoría</p>
+                    <div>
+                        <button type="button" className="filtros-detalle"
+                            onClick={() => {setFiltro("muebles")}}>Muebles
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" className="filtros-detalle"
+                            onClick={() => {setFiltro("bazar")}}>Bazar
+                        </button>
+                    </div>
                 </div>
                 <div>
-                    <p>Precio</p>
-                    <p className="filtros-detalle">$ 0 - $ 2.000,00</p>
-                    <p className="filtros-detalle" >$ 2.001 - $ 4.000,00</p>
-                    <p className="filtros-detalle" >$ 4.001 y más</p>
+                    <p className="filtros-titulos" >Precio</p>
+                    <div>
+                        <button type="button" className="filtros-detalle"
+                            onClick={() => {setFiltro(2000)}}>$ 0 - $ 2.000,00
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" className="filtros-detalle"
+                            onClick={() => {setFiltro(4000)}}>$ 2.001 - $ 4.000,00
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" className="filtros-detalle"
+                            onClick={() => {setFiltro(100000)}}>$ 4.001 y más
+                        </button>
+                    </div>
                 </div>
                 <div>
-                    <p>Color</p>
+                    <p className="filtros-titulos">Color</p>
                     <div className="filtros-color">
-                        <div className="filtros-circulo negro"></div>
-                        <div className="filtros-circulo blanco"></div>
+                        <button type="button" className="filtros-circulo negro"
+                            onClick={() => {setFiltro("negro")}}>
+                        </button>
+                        <button type="button" className="filtros-circulo blanco"
+                            onClick={() => {setFiltro("blanco")}}>
+                        </button>
                     </div>
                 </div>
             </div>
             <div className="filtros-boton">
-                <button className="btn btn-dark boton-filtrar">Aplicar filtros</button>
+                <button className="btn btn-dark boton-filtrar"
+                    onClick={() => {aplicarFiltros(filtro)}}>Aplicar filtros
+                </button>
             </div>
         </div>
     )

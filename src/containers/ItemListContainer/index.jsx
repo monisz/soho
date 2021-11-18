@@ -8,10 +8,10 @@ import { CartContext } from '../../context/CartContext';
 import "./styles.css";
 
 export const ItemListContainer = () => {
-    /* const [productData, setProductData] = useState(null); */
     const context = useContext(CartContext); 
     const { categoryFromUrl } = useParams();
-    const [productosXCategoria, setProductosXCategoria] = useState([]);
+    const [productosAMostrar, setProductosAMostrar] = useState([]);
+    let precioInicial = 0;
 
     /* useEffect(() => {
         sanityClient.fetch(`*[_type == "product" && category == "${categoryFromUrl}"]{
@@ -29,23 +29,46 @@ export const ItemListContainer = () => {
     }, [categoryFromUrl]); */
 
 
-    // console.log(context.productData)
-
+    console.log(context.productData)
+    
     useEffect ( () => {
-        const productosFiltrado = context.productData.filter ( (element) => element.category === categoryFromUrl);
-        setProductosXCategoria(productosFiltrado);
+        const prodXCategoria = context.productData.filter ( (element) => element.category === categoryFromUrl);
+        setProductosAMostrar(prodXCategoria);
     }, [categoryFromUrl, context.productData]);
+    
+    
+    function aplicarFiltros (filtro) {
+        calcularRangoDePrecios(filtro)
+        console.log("filtro antes de filtrar" + filtro)
+        const filtrados = context.productData.filter ( (el) =>
+            el.category === filtro  ||  el.colour.find ( (elem) => elem === filtro )
+            || (el.price >= precioInicial && el.price <= filtro));
+        console.log("filtrados" + `${JSON.stringify(filtrados)}`)
+        setProductosAMostrar(filtrados);
+        console.log("cambia a productos filtrados funcion")
+    }
+
+    function calcularRangoDePrecios (filtro) {
+        if (filtro === 4000) {
+            precioInicial = 2001;
+            } else  { if (filtro === 100000) {
+                    precioInicial = 4001;
+                    }
+            }
+    }
+
+    console.log("productos a mostrar" + `${JSON.stringify(productosAMostrar)}`)
 
     return (
         <div className="lista">
             <div className="filtros">
-                <Filtros productos={productosXCategoria}/>
+                <Filtros aplicarFiltros={aplicarFiltros}/>
             </div>
             <div className="cards">
                 {
-                    productosXCategoria ? (
-                        productosXCategoria.length > 0 ? (
-                            <ItemList productos={productosXCategoria}/>
+                    productosAMostrar ? (
+                        productosAMostrar.length > 0 ? (
+                            <ItemList productos={productosAMostrar}/>
                         ) : (
                             <Alert variant="warning" className='ob-aw'>
                                 No hay productos.
