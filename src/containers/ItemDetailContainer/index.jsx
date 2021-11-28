@@ -9,7 +9,6 @@ export const ItemDetailContainer = () => {
     const [productData, setProductData] = useState(null);
     const [itemDetalle, setItemDetalle] = useState({});
 
-    // console.log(title)
     useEffect(() => {
         sanityClient.fetch(`*[_type == "product"]{
             title,
@@ -20,14 +19,11 @@ export const ItemDetailContainer = () => {
             cares,
             colour,
             category->{title}
-        }`).then((data) => {
-            setProductData(data)
-            console.log('囧INICIO囧', 'data: ', data, '囧FIN囧');
-        }).catch(console.error)
+        }`)
+        .then(setProductData)
+        .catch(console.error)
     }, [])
     
-    // console.log(productData)
-
     useEffect ( () => {
         if (productData) {
             const itemBuscado = productData.find ((element) => element.title === title)
@@ -59,6 +55,4 @@ export const ItemDetailContainer = () => {
             )
         }
     }
-
-
 }

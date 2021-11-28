@@ -74,3 +74,17 @@ p.detalle-chatea-contenido .style-chat {
     font-size: 0.8rem;
     margin-top: 2%;
 }
+
+.detalle-izquierda .carousel {
+    margin-bottom: 2em;
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    margin-right: -100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out;
+}

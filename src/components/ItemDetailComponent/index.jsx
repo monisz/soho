@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import { Nav } from "react-bootstrap";
+import { Carousel, Nav } from "react-bootstrap";
 import "./styles.css";
 import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
@@ -24,7 +24,15 @@ export const ItemDetailComponent = ({item}) => {
                 </div>
             </button>
             <div className="detalle-izquierda">
-                <img className="detalle-img" src={item.images[0]} alt={item.title} />
+                <Carousel fade variant="dark" indicators={false}>
+                    {
+                        item.images.map((imgUrl, i) => (
+                            <Carousel.Item key={i}>
+                                <img src={imgUrl} alt={`${item.title}${i}`} width='100%' height='350px' />
+                            </Carousel.Item>
+                        ))
+                    }
+                </Carousel>
                 <ItemCount item={item} initial={1} onAdd={onAdd} from={"ItemDetail"} />
                 <Nav.Link className="detalle-chatea" href='https://wa.me/message/OCTVKP3KIITBI1' target="_blank">
                     <p className="detalle-chatea-contenido">Chateá con nosotros
