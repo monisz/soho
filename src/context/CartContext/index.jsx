@@ -8,8 +8,10 @@ export const CartComponentContext = ({children}) => {
     const [carrito, setCarrito] = useState([]);
     const [cartWidget, setCartWidget] = useState(0);
     const [precioTotal, setPrecioTotal] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         sanityClient.fetch(`*[_type == "product"]{
             title,
             price,
@@ -19,14 +21,12 @@ export const CartComponentContext = ({children}) => {
             cares,
             colour,
             category
-        }`).then((data) => {
-            setProductData(data)
-        }).catch(console.error)
+        }`)
+        .then(setProductData)
+        .catch(console.error)
+        .finally(() => setLoading(false))
     }, []);
 
-    //console.log(productData)
-    //console.log(carrito)
-    
     useEffect ( () => {
         const carritoEnLocal = JSON.parse(localStorage.getItem('carrito'));
         if (carritoEnLocal) {
@@ -81,7 +81,17 @@ export const CartComponentContext = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{productData, carrito, cartWidget, precioTotal, addItem, removeItem, clear}}>
+        <CartContext.Provider value={{
+            productData,
+            carrito,
+            cartWidget,
+            precioTotal,
+            addItem,
+            removeItem,
+            clear,
+            loading
+            }}
+        >
             {children}
         </CartContext.Provider>
     )
