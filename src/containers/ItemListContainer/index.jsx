@@ -1,63 +1,45 @@
-import React, { useState, useEffect, useContext } from 'react'
-/* import sanityClient from '../../sanityClient.js'; */
+import React, { useState, useEffect, useContext } from 'react';
 import { ItemList } from '../../components/ItemList';
 import { Filtros } from '../../components/Filtros/index.jsx';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { Alert, Spinner } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
 import "./styles.css";
 
 export const ItemListContainer = () => {
-    const context = useContext(CartContext); 
+    const { productData, loading } = useContext(CartContext); 
     const { categoryFromUrl } = useParams();
     const [productosAMostrar, setProductosAMostrar] = useState([]);
+    const history = useHistory();
     let precioInicial = 0;
 
-    /* useEffect(() => {
-        sanityClient.fetch(`*[_type == "product" && category == "${categoryFromUrl}"]{
-            title,
-            price,
-            "images": images[].asset->url,
-            detail,
-            measures,
-            cares,
-            colour,
-            category
-        }`).then((data) => {
-            setProductData(data)
-        }).catch(console.error)
-    }, [categoryFromUrl]); */
-
-
-    console.log(context.productData)
-    
     useEffect ( () => {
-        const prodXCategoria = context.productData.filter ( (element) => element.category === categoryFromUrl);
+        const prodXCategoria = productData.filter ( (element) => element.category === categoryFromUrl);
         setProductosAMostrar(prodXCategoria);
-    }, [categoryFromUrl, context.productData]);
+    }, [categoryFromUrl, productData]);
     
-    
-    function aplicarFiltros (filtro) {
-        calcularRangoDePrecios(filtro)
-        console.log("filtro antes de filtrar" + filtro)
-        const filtrados = context.productData.filter ( (el) =>
-            el.category === filtro  ||  el.colour.find ( (elem) => elem === filtro )
-            || (el.price >= precioInicial && el.price <= filtro));
-        console.log("filtrados" + `${JSON.stringify(filtrados)}`)
+    const aplicarFiltros = (filtro) => {
+        calcularRangoDePrecios(filtro);
+        if (filtro === 'muebles') {
+            history.push('/categoria/muebles');
+        } else if (filtro === 'bazar') {
+            history.push('/categoria/bazar');
+        };
+        const filtrados = productData.filter(el =>
+            el.category === filtro || 
+            el.colour.find(elem => elem === filtro ) ||
+            (el.price >= precioInicial && el.price <= filtro)
+        );
         setProductosAMostrar(filtrados);
-        console.log("cambia a productos filtrados funcion")
     }
 
-    function calcularRangoDePrecios (filtro) {
+    const calcularRangoDePrecios = (filtro) => {
         if (filtro === 4000) {
             precioInicial = 2001;
-            } else  { if (filtro === 100000) {
-                    precioInicial = 4001;
-                    }
-            }
+        } else if (filtro === 100000) {
+            precioInicial = 4001;
+        }
     }
-
-    console.log("productos a mostrar" + `${JSON.stringify(productosAMostrar)}`)
 
     return (
         <div className="lista">
@@ -66,7 +48,11 @@ export const ItemListContainer = () => {
             </div>
             <div className="cards">
                 {
-                    productosAMostrar ? (
+                    loading ? (
+                        <div className="il-spinner">
+                            <Spinner animation="border"/>
+                        </div>
+                    ) : (
                         productosAMostrar.length > 0 ? (
                             <ItemList productos={productosAMostrar}/>
                         ) : (
@@ -74,10 +60,6 @@ export const ItemListContainer = () => {
                                 No hay productos.
                             </Alert>
                         )
-                    ) : (
-                        <div className="il-spinner">
-                            <Spinner animation="border"/>
-                        </div>
                     )
                 }
             </div>

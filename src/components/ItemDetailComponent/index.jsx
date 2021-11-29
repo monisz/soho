@@ -5,6 +5,8 @@ import "./styles.css";
 import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
 import { ItemCount } from '../ItemCount/ItemCount';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 export const ItemDetailComponent = ({item}) => {
     const context = useContext(CartContext);
@@ -24,7 +26,15 @@ export const ItemDetailComponent = ({item}) => {
                 </div>
             </button>
             <div className="detalle-izquierda">
-                <img className="detalle-img" src={item.images[0]} alt={item.title} />
+                <Carousel showThumbs={false} showStatus={false} autoPlay className='photosProduct'>
+                    {
+                        item.images.map((imgUrl, i) =>(
+                            <div key={i} className="container-div">
+                                <img src={imgUrl} alt='' className="container-img"/>
+                            </div>
+                        ))
+                    }
+                </Carousel>
                 <ItemCount item={item} initial={1} onAdd={onAdd} from={"ItemDetail"} />
                 <Nav.Link className="detalle-chatea" href='https://wa.me/message/OCTVKP3KIITBI1' target="_blank">
                     <p className="detalle-chatea-contenido">Chateá con nosotros

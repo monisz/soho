@@ -74,3 +74,18 @@ p.detalle-chatea-contenido .style-chat {
     font-size: 0.8rem;
     margin-top: 2%;
 }
+
+.detalle-izquierda .photosProduct {
+    margin-bottom: 2em;
+}
+
+.container-div {
+    height: 400px;
+    width: 100%;
+}
+
+.container-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+} 
