@@ -1,10 +1,12 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import { Carousel, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import "./styles.css";
 import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
 import { ItemCount } from '../ItemCount/ItemCount';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 export const ItemDetailComponent = ({item}) => {
     const context = useContext(CartContext);
@@ -24,12 +26,12 @@ export const ItemDetailComponent = ({item}) => {
                 </div>
             </button>
             <div className="detalle-izquierda">
-                <Carousel fade variant="dark" indicators={false}>
+                <Carousel showThumbs={false} showStatus={false} autoPlay className='photosProduct'>
                     {
-                        item.images.map((imgUrl, i) => (
-                            <Carousel.Item key={i}>
-                                <img src={imgUrl} alt={`${item.title}${i}`} width='100%' height='350px' />
-                            </Carousel.Item>
+                        item.images.map((imgUrl, i) =>(
+                            <div key={i} className="container-div">
+                                <img src={imgUrl} alt='' className="container-img"/>
+                            </div>
                         ))
                     }
                 </Carousel>
